@@ -1,0 +1,57 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Scanners;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+/**
+ *
+ * @author Meganl
+ */
+public class BookManager 
+{   
+    //file path to the text file
+    public static String filePath = "data\\books.txt";
+ 
+    
+    //get books method
+    public static String getBooks()
+    {
+        String output = "";
+        try 
+        {
+            //makes a scanner for the file in file path
+            File file = new File(filePath);
+            Scanner fileScanner = new Scanner(file);
+            
+            //while loop to run as long as there is something to be run after each thing
+            while(fileScanner.hasNextLine())
+            {
+                //runs each line in the text file
+                String line = fileScanner.nextLine();
+                
+                //processes each line
+                //a scanner to scan through each line; delimiter is somnething that tells the coputer what to read
+                Scanner lineScanner = new Scanner(line).useDelimiter("#");
+                String name = lineScanner.next();
+                String author = lineScanner.next();
+                //output
+                output += "Book: " + name + " Author: " + author + "\n";
+                
+            }
+        } 
+        catch (FileNotFoundException ex) 
+        {
+            System.out.println("File not found");
+        }
+        
+        return output;
+    }
+}
