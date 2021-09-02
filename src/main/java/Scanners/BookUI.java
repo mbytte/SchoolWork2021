@@ -15,5 +15,10 @@ public class BookUI
     {
         String booksOutput = BookManager.getBooks();
         System.out.println(booksOutput);
+         
+        BookManager.NewBook("Losing Nemo", "Mubo Jumbo");
+       
+        String booksOutput2 = BookManager.getBooks();
+        System.out.println(booksOutput2);
     }
 }

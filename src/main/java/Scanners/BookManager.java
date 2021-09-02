@@ -7,6 +7,9 @@ package Scanners;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -18,10 +21,11 @@ import java.util.logging.Logger;
 public class BookManager 
 {   
     //file path to the text file
-    public static String filePath = "data\\books.txt";
+    public static String filePath = "C:\\Users\\Meganl\\Documents\\NetBeansProjects\\SchoolWork2021\\src\\main\\data\\books.txt";
  
     
     //get books method
+    //gets the information in the text file
     public static String getBooks()
     {
         String output = "";
@@ -45,13 +49,35 @@ public class BookManager
                 //output
                 output += "Book: " + name + " Author: " + author + "\n";
                 
+                lineScanner.close();
             }
+            //closing the file scanner so other methods and applications can use the folder that the scanner is using
+            fileScanner.close();
         } 
         catch (FileNotFoundException ex) 
         {
             System.out.println("File not found");
         }
         
+        
         return output;
+    }
+    
+    //writing into a text file
+    public static void NewBook(String book, String author)
+    {
+        try 
+        {
+            FileWriter fw = new FileWriter(filePath);
+            PrintWriter pw = new PrintWriter(fw);
+            
+            pw.println(book + "#" + author);
+            pw.close();
+        } 
+        catch (IOException ex) 
+        {
+            System.out.println("File not found");
+        }
+        
     }
 }
