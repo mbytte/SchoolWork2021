@@ -19,10 +19,12 @@ public class Heights
     {
         //variables
         double tallestHeight = 0;
+        double shortestHeight = 0;
         
         //input
         String heightStr = JOptionPane.showInputDialog("What is the height?");
         double heightDbl = Double.parseDouble(heightStr);
+        shortestHeight = heightDbl;
         
         //looping until a negative number is inputted
         while(heightDbl > 0)
@@ -34,7 +36,10 @@ public class Heights
                 double roundedHeight =  (Math.round(heightDbl*10))/10.0;
                 tallestHeight = roundedHeight;
             }
-            
+            if(heightDbl < shortestHeight)
+            {
+                shortestHeight = heightDbl;
+            }
             //getting more input 
             heightStr = JOptionPane.showInputDialog("What is the height?");
             heightDbl = Double.parseDouble(heightStr);
@@ -42,5 +47,6 @@ public class Heights
         
         //printing out tallest person
         System.out.println(tallestHeight);
+        System.out.println(shortestHeight);
     }
 }
