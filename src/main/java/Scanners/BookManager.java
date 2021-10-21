@@ -21,7 +21,7 @@ import java.util.logging.Logger;
 public class BookManager 
 {   
     //file path to the text file
-    public static String filePath = "C:\\Users\\Meganl\\Documents\\NetBeansProjects\\SchoolWork2021\\src\\main\\data\\books.txt";
+    public static String filePath = "src\\main\\resources\\books.txt";
  
     
     //get books method
@@ -32,27 +32,28 @@ public class BookManager
         try 
         {
             //makes a scanner for the file in file path
-            File file = new File(filePath);
-            Scanner fileScanner = new Scanner(file);
-            
+            File textfile = new File(filePath);
             //while loop to run as long as there is something to be run after each thing
-            while(fileScanner.hasNextLine())
+            try (Scanner fileScanner = new Scanner(textfile))
             {
-                //runs each line in the text file
-                String line = fileScanner.nextLine();
-                
-                //processes each line
-                //a scanner to scan through each line; delimiter is somnething that tells the coputer what to read
-                Scanner lineScanner = new Scanner(line).useDelimiter("#");
-                String name = lineScanner.next();
-                String author = lineScanner.next();
-                //output
-                output += "Book: " + name + " Author: " + author + "\n";
-                
-                lineScanner.close();
+                //while loop to run as long as there is something to be run after each thing
+                while (fileScanner.hasNextLine())
+                {
+                    //runs each line in the text file
+                    String line = fileScanner.nextLine();
+                    
+                    //processes each line
+                    //a scanner to scan through each line; delimiter is somnething that tells the coputer what to read
+                    Scanner lineScanner = new Scanner(line).useDelimiter("#");
+                    String name = lineScanner.next();
+                    String author = lineScanner.next();
+                    //output
+                    output += "Book: " + name + " Author: " + author + "\n";
+                    
+                    lineScanner.close();
+                }
+                //closing the file scanner so other methods and applications can use the folder that the scanner is using
             }
-            //closing the file scanner so other methods and applications can use the folder that the scanner is using
-            fileScanner.close();
         } 
         catch (FileNotFoundException ex) 
         {
