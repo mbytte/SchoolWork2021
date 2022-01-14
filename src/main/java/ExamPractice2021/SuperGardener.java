@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ExamPractice;
+package ExamPractice2021;
 
 import javax.swing.JOptionPane;
 
