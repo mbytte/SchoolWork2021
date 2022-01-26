@@ -35,14 +35,40 @@ public class CharacterBasics
         
         //variables
         char input = inputStr.charAt(0);
-        int numLetters;
-        int numDigits;
-        int otherChars;
+        int numLetters = 0;
+        int numDigits = 0;
+        int otherChars = 0;
+        
+        //adding to the quantities
+        if(Character.isLetter(input))
+        {
+            numLetters++;
+        }
+        else if(Character.isDigit(input))
+        {
+            numDigits++;
+        }
+        else
+        {
+            otherChars++;
+        }
         
         //creating a loop until the letter "x" is inputted
         while((input != 'x') || (input != 'X'))
         {
-            
+            //adding to the quantities
+            if(Character.isLetter(input))
+            {
+                numLetters++;
+            }
+            else if(Character.isDigit(input))
+            {
+                numDigits++;
+            }
+            else
+            {
+                otherChars++;
+            }  
         }
     }
 }
