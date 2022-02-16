@@ -14,5 +14,11 @@ public class SportsManagerUI
     {
         //printing out all the info of the textfile
         System.out.println(SportsManager.readPlayers());
+        
+        //adding a new player
+        SportsManager.addPlayer();
+        
+        //printing out all the new information
+        System.out.println(SportsManager.readPlayers());
     }
 }
