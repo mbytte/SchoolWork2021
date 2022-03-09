@@ -4,6 +4,8 @@
  */
 package Objects;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Meganl
@@ -11,9 +13,9 @@ package Objects;
 public class BankClient 
 {
     //variables
-    private String clientName;
-    private int accountNumber;
-    private double balance;
+    private static String clientName;
+    private static int accountNumber;
+    private static double balance;
     
     //constructor
     public BankClient()
@@ -54,7 +56,7 @@ public class BankClient
     
     
     //accessing and changing the methods
-    public void newValues(String newName, int newAccount, double newBalance)
+    public static void newValues(String newName, int newAccount, double newBalance)
     {
         clientName = newName;
         accountNumber = newAccount;
@@ -64,6 +66,23 @@ public class BankClient
     //rearranges the name and surname to surname.name.initials
     public static String changeName()
     {
-        String newName = 
+        String newName = clientName.substring(clientName.lastIndexOf(' ')+1) + clientName.charAt(0);
+        return newName;
+    }
+    
+    //puts all the object's references into a string
+    public String toString()
+    {
+        return changeName() + ", Balance: " + balance + ", Account Number: " + accountNumber;
+    }
+    
+    //validates the account number and then runs everything that is needed to be done
+    public static void validateAccount(String newName, String account, double newBalance)
+    {
+        int accountInt = Integer.parseInt(account);
+        if(account.length() == 6 && account.charAt(0) != '0' && (account.charAt(1)+account.charAt(2)/10 == account.charAt(4)))
+        {
+            BankClient.newValues(newName, accountInt, newBalance);
+        }
     }
 }

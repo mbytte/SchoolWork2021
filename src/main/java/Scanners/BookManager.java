@@ -69,7 +69,7 @@ public class BookManager
     {
         try 
         {
-            FileWriter fw = new FileWriter(filePath);
+            FileWriter fw = new FileWriter(filePath,true);
             PrintWriter pw = new PrintWriter(fw);
             
             pw.println(book + "#" + author);
