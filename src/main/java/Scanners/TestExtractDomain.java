@@ -32,12 +32,13 @@ public class TestExtractDomain
             while(fileScanner.hasNext())
             {
                 String line = fileScanner.next();
-                Scanner lineScanner = new Scanner(line).useDelimiter(".");
+                Scanner lineScanner = new Scanner(line).useDelimiter("[.]"); //in order to use a "." as a delimeter you need to put it into []
                 
                 //adding to the number of websites
                 numWebsites++;
                 
                 //outputting the domain of the website
+                lineScanner.next(); //called advancing the pointer (getting the pointer to go to where you want it to)
                 String domain = lineScanner.next();
                 System.out.println(domain);
                 
