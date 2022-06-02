@@ -17,6 +17,7 @@ public class BookUI
         System.out.println(booksOutput);
          
         BookManager.NewBook("Badum", "tshhh");
+        BookManager.NewBook("Badum", "ts");
        
         String booksOutput2 = BookManager.getBooks();
         System.out.println(booksOutput2);

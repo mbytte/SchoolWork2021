@@ -22,8 +22,6 @@ public class Details
         String inputDetails = JOptionPane.showInputDialog("Enter your name, ID number, height in meters, and whether you smoke or not(true/false). Leave a space between every concept");
         //scanner
         Scanner sc = new Scanner(inputDetails);
-        //pointer
-        int position = 0;
         
         //printing out each item in the string
         System.out.println("Name: " + sc.next());
