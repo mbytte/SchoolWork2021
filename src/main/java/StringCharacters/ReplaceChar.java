@@ -17,29 +17,22 @@ public class ReplaceChar
     public static void main(String[] args)
     {
         //variables
-        String input = JOptionPane.showInputDialog("Input a sentence");
-        int startPosition = 0;
-        int letterNum = 0;
-        String output = "";
+        String input = JOptionPane.showInputDialog("Enter a sentence");
+        int spacePosition = input.indexOf(" ");
         
-        //running through the whole word but only until it reaches a certain character
-        while(letterNum < input.length())
+        //getting the areas where there is a space and replacing them with a *
+        //makes a substring out of the first word up until the first space and then adds the rest of the string at the end of it
+        input = input.substring(0, spacePosition) + "*" + input.substring(spacePosition+1); 
+        //while there are spaces in input, do stuff (because if there is no more spaces then indexOf returns a -1)
+        while(input.indexOf(" ", spacePosition) > 0)
         {
-            //runs until the first case of  a space is reached from the starting point
-            if(letterNum != input.indexOf(" ", startPosition))
-            {
-                output+=input.charAt(letterNum);
-            } 
-            //if the character reached is now a space then then a * is added to the output and the startPosition is changed to the letterNum+1 (character after the space)
-            else
-            {
-                output+="*";
-                startPosition = letterNum+1;
-            }
-            letterNum++;
+            //makes a substring out of the first words up until the nect space and then adds the rest of the string to the end of the string (this happens until all the spaces are replaced)
+            input = input.substring(0, spacePosition) + "*"+ input.substring(spacePosition+1);
+            //setting a new index of the first space because it will change with every loop because the spaces are getting replaced
+            spacePosition = input.indexOf(" ");
         }
         
         //output
-        System.out.println(output);
+        System.out.println(input);
     }
 }
