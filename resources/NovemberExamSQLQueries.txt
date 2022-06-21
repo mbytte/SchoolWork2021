@@ -1,0 +1,41 @@
+//Q1
+SELECT *
+FROM tblEvents
+ORDER BY `Time` DESC
+
+//Q2
+SELECT `Name`, `Project`, `Registration`
+FROM tblEvents
+WHERE `Registration` IS NOT NULL
+
+//Q3
+SELECT *
+FROM tblEvents
+WHERE `Date` >= "2020-01-01"
+AND `Date` <= "2020-03-31"
+
+//Q4
+SELECT *
+FROM tblEvents
+WHERE `Name` = "Refiloe Terblanche"
+OR `Name` = "Thandi Madikwe"
+ORDER BY `Name`, `Date` DESC
+
+//Q5
+SELECT `Name`, `Project`, `MileageReturning`
+FROM tblEvents
+WHERE `MileageReturning` <= 100000
+
+//Q6
+INSERT INTO tblEvents (`Name`, `Project`, `Date`)
+VALUES
+("Francis Botha", "Plant Trees", "2020-02-28")
+
+//Q7
+DELETE FROM tblEvents
+WHERE `Name` = "Adeity Moodley"
+
+//Q8
+UPDATE tblEvents
+SET `Name` = "Charlene Smith"
+WHERE `Name` = "Charlene Terblanche"

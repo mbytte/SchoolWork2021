@@ -1,0 +1,17 @@
+Count Dooku;Dark,Sith,Support;7;6;5;6; 
+Obi-Wan Kenobi;Light,Jedi,Human,Tank;7;7;6;7; 
+Ewok Scout;Light,Ewok,Attacker;6;5;3;0; 
+Darth Vader;Dark,Human,Sith,Empire,Attacker;7;7;7;0; 
+Stormtrooper;Dark,Empire,Attacker;5;4;0;2; 
+Princess Leia;Light,Rebel,Attacker;7;7;7;6; 
+Luke Skywalker;Light,Attacker,Rebel;7;7;7;7; 
+Kylo Ren;Dark,Human,First Order,Attacker;7;7;5;6; 
+Rey;Light,Attacker,Resistance,Human;7;7;7;7; 
+Captain Phasma;Dark,First Order,Support,Human;7;4;4;0; 
+Finn;Light,Tank,Resistance,Human;7;4;7;0; 
+Nute Gunray;Dark,Scoundrel,Attacker;6;5;3;4; 
+Boba Fett;Dark,Scoundrel,Tank;5;4;2;3; 
+Chewbacca;Light,Scoundrel,Tank;7;4;2;4;
+
+
+
