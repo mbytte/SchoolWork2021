@@ -42,7 +42,7 @@ public class PersonManager
     }
     
     //binary search
-    public Person binarySearch(String name)
+    public int binarySearch(String name)
     {
         int start = 0;
         int end = size-1;
@@ -54,7 +54,7 @@ public class PersonManager
                     
             if(middlePersonName.compareTo(name)==0)
             {
-                return personArray[middle];
+                return middle;
             }
             
             else if(middlePersonName.compareTo(name)<0)
@@ -70,7 +70,7 @@ public class PersonManager
         }
         
         //can't find any person object with that same name
-        return null;
+        return 0;
     }
         
      
@@ -97,15 +97,34 @@ public class PersonManager
     
     
     //adding to a sorted array
+    //doesnt work but you need to work from the back of the array until the place where you need to add the newPerson
     public void add(Person newPerson)
     {
-        
+        size++;
+        //finding the place where the person will be inserted
+        for(int i = 0; i < size; i++)
+        {
+            if((newPerson.getName().compareTo(personArray[i].getName())<0) && (newPerson.getName().compareTo(personArray[i+1].getName())>0))
+            {
+                for(int j = size; j > i+1;j--)
+                {
+                    Person temp = personArray[j+1]; 
+                    personArray[j] = personArray[j+1];
+                }
+            }
+        }
     }
     
     
     //deleting from an array
-    public void delete()
+    public void delete(String name)
     {
+        //finding the person with the same name and then overwriting the data
+        int deleteInd = binarySearch(name);
+        for(int i = deleteInd; i < size; i++)
+        {
+            personArray[i] = personArray[i+1];
+        }
         
     }
     
