@@ -75,7 +75,7 @@ public class PersonManager
         
      
     //insertionSort (name)
-    public void InsertionSort()
+    public void insertionSort()
     {
         for(int i = 0; i < size; i++)
         {
@@ -97,35 +97,52 @@ public class PersonManager
     
     
     //adding to a sorted array
-    //doesnt work but you need to work from the back of the array until the place where you need to add the newPerson
-    public void add(Person newPerson)
+    public void insert(String name, String surname, int age) 
+    {
+        int index = -1; //is -1 because if it doesn't exist then the index will still be -1 which is impossible
+        for (int i = 0; i < size; i++) 
+        {
+            //comparing the names to try and get the index where the new person needs to be inserted
+            if (personArray[i].getName().compareTo(name) > 0) 
+            {
+                index = i;
+                break;
+            }
+        }
+        //shifting everything first and then inserting the new object into the position where it needs to be
+        shiftRight(index);
+        personArray[index] = new Person(name, surname, age);
+    }
+    //moves everything to the right
+    private void shiftRight(int index) 
     {
         size++;
-        //finding the place where the person will be inserted
-        for(int i = 0; i < size; i++)
+        //moves from the outside to the inside
+        for (int i = size - 1; i > index; i--) 
         {
-            if((newPerson.getName().compareTo(personArray[i].getName())<0) && (newPerson.getName().compareTo(personArray[i+1].getName())>0))
-            {
-                for(int j = size; j > i+1;j--)
-                {
-                    Person temp = personArray[j+1]; 
-                    personArray[j] = personArray[j+1];
-                }
-            }
+            personArray[i] = personArray[i - 1];
         }
     }
     
     
     //deleting from an array
-    public void delete(String name)
+    public void delete(String name) 
     {
-        //finding the person with the same name and then overwriting the data
-        int deleteInd = binarySearch(name);
-        for(int i = deleteInd; i < size; i++)
+        //looks for the index where the name is and then overwrited that data from that index onwards
+        int index = binarySearch(name);
+        if (index >= 0) 
         {
-            personArray[i] = personArray[i+1];
+            shiftLeft(index);
         }
-        
+    }
+    //helper method that overwrites data
+    private void shiftLeft(int index) 
+    {
+        for (int i = index; i < size - 1; i++) 
+        {
+            personArray[i] = personArray[i + 1];
+        }
+    size--;
     }
     
     
