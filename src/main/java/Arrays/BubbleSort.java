@@ -10,14 +10,15 @@ package Arrays;
  */
 public class BubbleSort 
 {
+    private static int[] arr = {3, 5, 7, 1, 6, 9, 10, 52};
     public static void main(String[] args) 
     {
         //array
-        int[] arr = {3, 5, 7, 1, 6, 9, 10, 52};
-        
-        pointerSort(arr);
-        
+        improvedBubbleSort();
         arrayPrint(arr);
+        //pointerSort(arr);
+        
+        //arrayPrint(arr);
     }
     
     //array printer
@@ -73,4 +74,26 @@ public class BubbleSort
         }
     }
     
+    
+    public static void improvedBubbleSort()
+    {
+        boolean sorted = false;
+        int i = arr.length-1;
+        
+        while(!sorted)
+        {
+            sorted = true;
+            for(int j = 0; j < i; j++)
+            {
+                if(arr[j] > arr[j+1])
+                {
+                    int temp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = temp;
+                    sorted = false;
+                }
+            }
+            i--;
+        }
+    }
 }
