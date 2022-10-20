@@ -38,4 +38,16 @@ public class Student
     {
         this.birthday = birthday;
     }
+
+    
+    //puts the date into a specific format and gets the name and all that lovely stuff
+    @Override
+    public String toString() 
+    {
+        //changing the format of birthday
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd MMMM yyyy");
+        return name + " " + surname + ": " + birthday.format(dtf);
+    }
+    
+    
 }

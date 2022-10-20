@@ -13,6 +13,6 @@ public class StudentUI
     public static void main(String[] args) 
     {
         StudentManager students = new StudentManager();
-        
+        System.out.println(students.toString());
     }
 }

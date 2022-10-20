@@ -26,7 +26,7 @@ public class StudentManager
         try 
         {
             //scanner
-            Scanner fileScanner = new Scanner(new File("data\\student.txt"));
+            Scanner fileScanner = new Scanner(new File("resources\\student.txt"));
             size = 0;
             
             //scanning through a textfile and adding it to the textfile
@@ -34,23 +34,32 @@ public class StudentManager
             {
                 //scanner
                 Scanner lineScanner = new Scanner(fileScanner.next()).useDelimiter("#");
-                DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-YYYY");
+                DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy");
                 studentArr[size]= new Student(lineScanner.next(), lineScanner.next(), LocalDate.parse(lineScanner.next(), dtf));
                 size++;
+                
+                //closing the scanner
+                lineScanner.close();
             }
+            //closing the scanner
+            fileScanner.close();
         } catch (FileNotFoundException ex) 
         {
             System.out.println("File not found");
         }
     }
-    
-    
-        //changes the format of the date
-        public void changeDateFormat()
-        {
-            LocalDate birthday = LocalDate();
-            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd MMMM YYYY");
-            birthday.format(dtf);
-        }
 
+    @Override
+    public String toString() 
+    {
+        String arrStrings = "";
+        for(int i = 0; i < size; i++)
+        {
+            arrStrings+=studentArr[i] + "\n";
+        }
+        return arrStrings;
+    }
+    
+    
+    
 }
