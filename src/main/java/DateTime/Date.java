@@ -15,6 +15,7 @@ public class Date
 {
     public static void main(String[] args) 
     {
+        //period = Measures length of time in years,days and months
         //creating the variables
         //localdate can not be made like a normal object but the object gets made when you put in the values in the of thingy majig
         LocalDate bdayDate = LocalDate.of(2005, Month.MAY, 10);
@@ -23,6 +24,8 @@ public class Date
         System.out.println(age);
         
         
+        
+        //duration = Measures length of time in seconds and nanoseconds
         //comparing two bdays and seeing which came first
         LocalDate bday1Date = LocalDate.of(2005, Month.MAY, 10);
         LocalDate bday2Date = LocalDate.of(2006, Month.JANUARY, 3);
