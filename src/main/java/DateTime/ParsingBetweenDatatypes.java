@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
  *
  * @author Meganl
  */
-public class StringToDate 
+public class ParsingBetweenDatatypes 
 {
     public static void main(String[] args) 
     {

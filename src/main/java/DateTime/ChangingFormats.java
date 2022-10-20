@@ -11,7 +11,7 @@ import java.time.format.DateTimeFormatter;
  *
  * @author Meganl
  */
-public class DateAndTimeFormatter 
+public class ChangingFormats 
 {
     public static void main(String[] args) 
     {
