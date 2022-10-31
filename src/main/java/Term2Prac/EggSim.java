@@ -1,3 +1,5 @@
+package Term2Prac;
+
 
 public class EggSim
 {

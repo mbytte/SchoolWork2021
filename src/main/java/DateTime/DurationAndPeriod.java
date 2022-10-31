@@ -23,6 +23,7 @@ public class DurationAndPeriod
         LocalDate today = LocalDate.now();
         Period age = Period.between(myBday, today); //order matters: myBday - today = age
         System.out.println("I am " + age.getYears()+ " years, " + age.getMonths() + " months and " + age.getDays() + " days old");
+        System.out.println("");
         
         
         
@@ -31,12 +32,13 @@ public class DurationAndPeriod
         LocalTime now = LocalTime.now();
         Duration timeToGo = Duration.between(now, appointmentTime);//order matters: appointmentTime - now = duration
         System.out.println("My appointment is " + timeToGo.toSeconds() + " seconds from now");
+        System.out.println("");
         
         //converting into a time object in order to get the hours, minutes and seconds in a duration of time
         long seconds = timeToGo.toSeconds();
         //If there is 7 hours, 15 minutes and 12 seconds to go
         //this time object will be set to 07:15:12.
         LocalTime t = LocalTime.ofSecondOfDay(seconds);
-        System.out.println("My appointment is " + t.getHour() + " hours, " + t.getMinute() + " minutes and " + t.getSecond() + "seconds away from now");
+        System.out.println("My appointment is " + t.getHour() + " hours, " + t.getMinute() + " minutes and " + t.getSecond() + " seconds away from now");
     }
 }
