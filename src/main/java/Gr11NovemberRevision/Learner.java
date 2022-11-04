@@ -15,14 +15,19 @@ public class Learner
     private String learnerCode;
     private Activity activityOne;
     private Activity activityTwo;
+    public final double INSURANCE_COST = 105.25;
 
     
     //constructor
     public Learner(String learnerName, Activity activityOne, Activity activityTwo) 
     {
+        //setting the properties to be what was inputted for them
         this.learnerName = learnerName;
         this.activityOne = activityOne;
         this.activityTwo = activityTwo;
+        
+        //getting a value for learner code
+        learnerCode = (learnerName.substring(0,2)).toUpperCase() + Math.round(Math.random()*(100-10)+10);
     }
 
     
@@ -43,7 +48,9 @@ public class Learner
     //calculates the total cost of activities the learner does
     public double calcStudentTotalCost()
     {
-        
+        //variables
+        double totalCost = activityOne.getCost() + activityTwo.getCost() + INSURANCE_COST;
+        return totalCost;
     }
     
     
@@ -51,9 +58,10 @@ public class Learner
     @Override
     public String toString() 
     {
-        return "Learner{" + "learnerName=" + learnerName + ", learnerCode=" + learnerCode + ", activityOne=" + activityOne + ", activityTwo=" + activityTwo + '}';
+        String output = "Name: " + learnerName + " " + learnerCode;
+        output+="\nActivity 1: " + activityOne.getActDate() + " - " + activityOne.getDescription();
+        output+="\nActivity 2: " + activityTwo.getActDate() + " - " + activityTwo.getDescription();
+        output+="\nCost: R" + calcStudentTotalCost();
+        return output;
     }
-    
-    
-    
 }
