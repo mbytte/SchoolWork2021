@@ -17,72 +17,42 @@ import javax.swing.JOptionPane;
  */
 public class Searching 
 {
+    //arrays
+    public static int[] sortedArr = {1,2,3,4,5,6,7,8,9,10}; //used for the binary search because a binary search has to happen on a sorted array
+    public static int[] arr = {3, 5, 7, 1, 6, 9, 10, 52}; //used for the linear searc
+    
     public static void main(String[] args) 
     {
-        //variables
-        String nums = "data\\numbers.txt";
-        File filepath = new File(nums);
-        
-        //creating array
-        int[] arr = makeArray(filepath);
-        int[] sortedArr = {1,2,3,4,5,6,7,8,9,10};
-        System.out.println(normalSearch(arr, 9));
-        System.out.println(binarySearch(sortedArr, 10));
+         //searching for the indexes of the numbers that are in the thingy
+        System.out.println(linearSearch(9));
+        System.out.println(binarySearch(1));
     }
     
-    //makes array out of textfile
-    public static int[] makeArray(File f)
-    {
-        int[] arr = new int[10];
-        try 
-        {
-            //variables
-            Scanner numberScanner = new Scanner(f);
-            
-            //making an array
-            for(int i = 0; i < arr.length-1; i++)
-            {
-                arr[i] = numberScanner.nextInt();
-            }
-            //closing the scanner
-            numberScanner.close(); 
-        } 
-        catch (FileNotFoundException ex) 
-        {
-            Logger.getLogger(Searching.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        //returning the array
-        return arr;
-    }
-    
-    
-    //binary search
-    public static int binarySearch(int[] arr, int inputNum)
+    //binary search - always has to be done on a sorted array
+    public static int binarySearch(int inputNum)
     {
         //variables
         int start = 0;
-        int end = arr.length-1;
+        int end = sortedArr.length-1;
         
         //going through all the numbers
         while(start <= end)
         {
             int middle = (start+end)/2;
             
-            if(arr[middle] == inputNum)
+            if(sortedArr[middle] == inputNum)
             {
                 return middle;
             }
             
-            if(arr[middle] > inputNum)
+            if(sortedArr[middle] > inputNum)
             {
                 end = middle - 1;
             }
             
-            if(arr[middle] < inputNum)
+            if(sortedArr[middle] < inputNum)
             {
                 start = middle+1;
-                end = arr.length-1;
             }
         }
         return -1;
@@ -90,7 +60,7 @@ public class Searching
     
     
     //normal search
-    public static int normalSearch(int[] arr, int inputNum)
+    public static int linearSearch(int inputNum)
     {
        //run through the array
        for(int i = 0; i < arr.length-1; i++)
@@ -101,6 +71,7 @@ public class Searching
            }
        }
        
+       //incident where there is no number like that in the array
        return -1;
     }
 }

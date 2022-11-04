@@ -4,7 +4,7 @@
  */
 package Gr11NovemberRevision;
 
-import DateTime.Date;
+import java.time.LocalDate;
 
 /**
  *
@@ -15,11 +15,11 @@ public class Activity
     //properties
     private String description;
     private double cost;
-    private Date actDate;
+    private LocalDate actDate;
 
     
     //constructor
-    public Activity(String description, double cost, Date actDate) 
+    public Activity(String description, double cost, LocalDate actDate) 
     {
         this.description = description;
         this.cost = cost;
@@ -36,7 +36,7 @@ public class Activity
     {
         return cost;
     }
-    public Date getActDate() 
+    public LocalDate getActDate() 
     {
         return actDate;
     }
