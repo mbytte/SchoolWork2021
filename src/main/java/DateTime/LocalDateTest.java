@@ -11,7 +11,7 @@ import java.time.Month;
  *
  * @author Meganl
  */
-public class Date 
+public class LocalDateTest 
 {
     public static void main(String[] args) 
     {
