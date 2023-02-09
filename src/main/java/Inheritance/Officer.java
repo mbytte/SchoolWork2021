@@ -6,7 +6,6 @@ package Inheritance;
 
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 /**
  *
@@ -63,7 +62,14 @@ public class Officer extends CrewMember
     //promotes the officer
     public void promote()
     {
-        
+        //adding to the rank
+       rank++; 
+       
+       //setting the date that they were promoted to todays date
+       datePromoted = LocalDate.now();
+       
+       //adding to the number of promoted officers
+       numPromotedOfficers++;
     }
     
     
@@ -71,8 +77,6 @@ public class Officer extends CrewMember
     @Override
     public String toString() 
     {
-        return "Officer{" + "rank=" + rank + ", datePromoted=" + datePromoted + '}';
-    }
-    
-    
+        return getFullname() + "\t" + "Crew ID: " + getCrewID() + " \t[" + getDepartment() + "]" + getTitle();
+    }   
 }
