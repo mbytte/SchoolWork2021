@@ -9,6 +9,8 @@ import java.io.FileNotFoundException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -67,8 +69,7 @@ public class CrewMemberManager
                 lineScanner.close();
                 fieldCounter.close();
                 
-                //going onto the next line and increasing the size
-                fileScanner.next();
+                //Increasing the size
                 size++;
             }           
             
@@ -100,7 +101,28 @@ public class CrewMemberManager
     //gives a crewmember a certain number based upon their details
     public void processTestResults()
     {
-        
+        try 
+        {
+            //variables
+            Scanner fileScanner = new Scanner(new File("resources\\testResults.txt"));
+            
+            //going through the texfile and getting the crewID and it's corresponding score
+            while(fileScanner.hasNext())
+            {
+                int currentCrewID = fileScanner.nextInt();
+                int score = fileScanner.nextInt();
+                int crewMemberPosition = findCrewMember(currentCrewID);
+                
+                //checking if the current crewMember is an officer 
+                if(cArr[crewMemberPosition] instanceof Officer)
+                {
+                    if()
+                }
+            }
+        } catch (FileNotFoundException ex) 
+        {
+            Logger.getLogger(CrewMemberManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     
